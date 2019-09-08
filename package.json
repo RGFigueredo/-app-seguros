@@ -1,10 +1,11 @@
 {
-  "name": "app-als",
+  "name": "app-seguros",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --single-bundle true --output-hashing none",
+    "build-extra": "ng build  --extraWebpackConfig webpack.extra.js --single-bundle true",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -15,10 +16,13 @@
     "@angular/common": "~8.0.3",
     "@angular/compiler": "~8.0.3",
     "@angular/core": "~8.0.3",
+    "@angular/elements": "^8.0.3",
     "@angular/forms": "~8.0.3",
     "@angular/platform-browser": "~8.0.3",
     "@angular/platform-browser-dynamic": "~8.0.3",
     "@angular/router": "~8.0.3",
+    "document-register-element": "^1.7.2",
+    "ngx-build-plus": "^8.1.4",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
