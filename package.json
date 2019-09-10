@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --single-bundle true --output-hashing none",
-    "build-extra": "ng build  --extraWebpackConfig webpack.extra.js --single-bundle true",
+    "build-extra": "ng build --prod  --extraWebpackConfig webpack.extra.js --single-bundle true",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
