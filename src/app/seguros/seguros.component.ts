@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
-declare const EVENT_BUS;
+declare const APP_EVENT_BUS;
 
 @Component({
 /*   selector: 'app-seguros', */
@@ -52,12 +52,9 @@ export class SegurosComponent implements OnInit {
 
   ngOnInit() {
 
-    if(EVENT_BUS)
+    if(APP_EVENT_BUS)
     {
-      const eventBus =  EVENT_BUS.EventBusSingleton;
-
-      const subscription = eventBus.subscribe('eventTeste', arg => console.log(">>> dentro do seguros...", arg));
-
+      const subscription = APP_EVENT_BUS.subscribe('eventTeste', arg => console.log(">>> dentro do seguros...", arg));
     }
   }
 
