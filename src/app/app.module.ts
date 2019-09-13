@@ -3,10 +3,13 @@ import { NgModule, Injector } from '@angular/core';
 import { SegurosComponent } from './seguros/seguros.component';
 import { createCustomElement } from '@angular/elements';
 import { RouterModule } from '@angular/router';
-import { ResidencialComponent } from './seguros/residencial/residencial.component';
-import { ResidencialModule } from './seguros/residencial/residencial.module';
-import { AutomotivoComponent } from './seguros/automotivo/automotivo.component';
-import { AutomotivoModule } from './seguros/automotivo/automotivo.module';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CotacaoComponent } from './seguros/cotacao/cotacao.component';
+import { CotacaoModule } from './seguros/cotacao/cotacao.module';
+import { ContratarModule } from './seguros/contratar/contratar.module';
+import { ContratarComponent } from './seguros/contratar/contratar.component';
 
 @NgModule({
   declarations: [
@@ -14,28 +17,36 @@ import { AutomotivoModule } from './seguros/automotivo/automotivo.module';
   ],
   imports: [
     BrowserModule,
-    ResidencialModule,
-    AutomotivoModule,
+    BrowserAnimationsModule,
+    CotacaoModule,
+    ContratarModule,
+    MatCardModule,
+    MatButtonModule,
     RouterModule.forRoot(
       [
         {
-           path : 'residencial',
-           component:ResidencialComponent
+          path: '',
+          pathMatch: 'full',
+          redirectTo: 'cotacao'
         },
         {
-          path : 'automotivo',
-          component:AutomotivoComponent
-       }        
+          path: 'cotacao',
+          component: CotacaoComponent
+        },
+        {
+          path: 'contratar/:value',
+          component: ContratarComponent
+        }
       ]
     )
   ],
   providers: [],
   entryComponents: [SegurosComponent]
-/*   bootstrap: [SegurosComponent] */
+  /*   bootstrap: [SegurosComponent] */
 })
-export class AppModule { 
+export class AppModule {
 
-  constructor(private injector: Injector) {}
+  constructor(private injector: Injector) { }
 
   ngDoBootstrap() {
     const appSeguros = createCustomElement(SegurosComponent, { injector: this.injector });

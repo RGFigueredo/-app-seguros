@@ -1,0 +1,27 @@
+.mat-radio-button
+{
+    display: block;
+    padding: 20px;
+}
+
+.valor-cotacao-label
+{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+
+.valor-cotacao
+{
+    font-size: 30px;
+    text-align: center;
+    padding: 30px;
+    color: #1b631b;
+}
+
+.valor-cotacao-container
+{
+
+}

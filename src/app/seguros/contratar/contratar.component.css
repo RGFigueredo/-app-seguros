@@ -1,0 +1,13 @@
+.container-contratar {
+    padding: 70px 0;
+
+    text-align: center;
+  }
+
+.valor-cotacao
+{
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+    color: #1b631b;
+}

@@ -1,0 +1,78 @@
+<h3>Cotação Seguro Auto </h3>
+<mat-horizontal-stepper labelPosition="bottom" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Qual tempo de uso do carro ?</ng-template>
+
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Novo </mat-radio-button>
+        <mat-radio-button value="2">Usado - Menos de 3 anos </mat-radio-button>
+        <mat-radio-button value="2">Usado - Mais de 3 anos </mat-radio-button>
+      </mat-radio-group>
+      <div style="float: right;">
+        <button mat-raised-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Qual a Categoria do seu carro ? </ng-template>
+
+
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1"> Compacto</mat-radio-button>
+        <mat-radio-button value="2">Sedã </mat-radio-button>
+        <mat-radio-button value="3">Picape </mat-radio-button>
+        <mat-radio-button value="4">SUV </mat-radio-button>
+        <mat-radio-button value="4">Esportivo </mat-radio-button>
+        <mat-radio-button value="4">Outros </mat-radio-button>
+      </mat-radio-group>
+
+
+      <div style="float: right;">
+        <button mat-raised-button matStepperPrevious>Anterior</button>
+        <button mat-raised-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Em qual região você mora ? </ng-template>
+
+
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1"> Região Norte</mat-radio-button>
+        <mat-radio-button value="2">Região Nordeste </mat-radio-button>
+        <mat-radio-button value="3">Região Centro Oeste </mat-radio-button>
+        <mat-radio-button value="4">Região Sudoeste </mat-radio-button>
+        <mat-radio-button value="4">Região Sul </mat-radio-button>
+      </mat-radio-group>
+
+
+      <div style="float: right;">
+        <button mat-raised-button matStepperPrevious>Anterior</button>
+        <button mat-raised-button matStepperNext (click)="calcValorCotacao()">Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Valor da cotação </ng-template>
+
+
+        <div class="valor-cotacao-label"> Valor da cotação </div>
+        <div class="valor-cotacao"> R$ {{value}} </div>
+        <div style="float: right;">
+
+          <button mat-button color="primary" mat-raised-button (click)="routerContratar()">Cotratar</button>
+        </div>
+    </form>
+  </mat-step>
+
+</mat-horizontal-stepper>
