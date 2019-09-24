@@ -35,8 +35,8 @@ export class ContratarComponent implements OnInit, OnDestroy {
       {
         if (APP_EVENT_BUS)
         {
-          console.log(">>> message-contract-insurance "); 
-          APP_EVENT_BUS.publish('message-contract-insurance', 'Seguro contrato com sucesso');
+          console.log(">>> message-success "); 
+          APP_EVENT_BUS.publish('message-success', 'Seguro contrato com sucesso');
 
           console.log(">>> go-home "); 
           APP_EVENT_BUS.publish('go-home', '');

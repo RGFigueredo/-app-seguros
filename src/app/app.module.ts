@@ -2,14 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
 import { SegurosComponent } from './seguros/seguros.component';
 import { createCustomElement } from '@angular/elements';
-import { RouterModule } from '@angular/router';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
+import { RouterModule, Router, RouteConfigLoadStart } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CotacaoComponent } from './seguros/cotacao/cotacao.component';
 import { CotacaoModule } from './seguros/cotacao/cotacao.module';
 import { ContratarModule } from './seguros/contratar/contratar.module';
-import { ContratarComponent } from './seguros/contratar/contratar.component';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,8 +18,6 @@ import { ContratarComponent } from './seguros/contratar/contratar.component';
     BrowserAnimationsModule,
     CotacaoModule,
     ContratarModule,
-    MatCardModule,
-    MatButtonModule,
     RouterModule.forRoot(
       [
         {
@@ -35,18 +31,30 @@ import { ContratarComponent } from './seguros/contratar/contratar.component';
         },
         {
           path: 'contratar/:value',
-          component: ContratarComponent
+          loadChildren: () => import('./seguros/contratar/contratar.module').then(m => m.ContratarModule)
         }
       ]
     )
   ],
-  providers: [],
+  
+  providers: [ ],
   entryComponents: [SegurosComponent]
   /*   bootstrap: [SegurosComponent] */
 })
 export class AppModule {
+	contructor() {
 
-  constructor(private injector: Injector) { }
+	}
+  constructor(private injector: Injector, router: Router) {
+    router.events.subscribe(event => {
+			if (event instanceof RouteConfigLoadStart) {
+      console.log(">>>> change before... " + event.route.path)
+      //event.route.path = "/app-seguros/" +  event.route.path;
+      console.log(">>>>> change after... " + event.route.path);
+      //event.route.canLoad
+			}
+		});
+   }
 
   ngDoBootstrap() {
     const appSeguros = createCustomElement(SegurosComponent, { injector: this.injector });

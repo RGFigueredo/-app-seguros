@@ -9,7 +9,6 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -20,7 +19,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatInputModule,
     MatRadioModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   declarations: [CotacaoComponent]
 })
