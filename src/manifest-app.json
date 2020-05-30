@@ -1,0 +1,8 @@
+{
+    "tag": "<app-seguros> </app-seguros>",
+    "tagName":"app-seguros",
+    "scripts" : [
+        "main-es2015.js",
+        "scripts.js"
+    ]
+}
