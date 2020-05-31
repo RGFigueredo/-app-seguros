@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build --extra-webpack-config webpack.externals.js --prod --single-bundle --output-hashing none",
+    "build": "ng build --prod --output-hashing none",
     "build-local": "ng build --prod --aot --base-href /app-seguros/",
     "build-extra": "ng build --prod  --extraWebpackConfig webpack.extra.js --single-bundle true",
     "test": "ng test",

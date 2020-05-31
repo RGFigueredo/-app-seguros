@@ -46,6 +46,13 @@ export class AppModule {
 
   ngDoBootstrap() {
     const appSeguros = createCustomElement(SegurosComponent, { injector: this.injector });
-    customElements.define('app-seguros', appSeguros);
+    try
+    {
+      customElements.define('app-seguros', appSeguros);
+    }catch(e)
+    {
+      console.log(e);
+    }
+    
   }
 }
